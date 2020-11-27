@@ -1,0 +1,62 @@
+DONE class huff: (viết thứ 2)
+những hàm liên quan đến .code: 
+DONE 1. setFileNames
+DONE 2. hàm countCharacterFrequencies
+
+
+DONE 3. hàm readCodes - read codes từ hàm write trong HuffmanTree
+skip 32 bit đầu, bắt đầu từ bit 33
+đọc tree đc viết bởi hàm write trong .huff (theo post-order traversal)
+bit by bit.
+gọi hàm HuffmanTree 2 để đọc bit, tạo lại HuffmanTree bằng stack
+gặp 1 --> lấy 8 bit sau đó --> tạo 1 huffmanNode chứa mã ascii được chuyển 8-bit binary --> cho vào stack
+gặp 0 --> rút 2 node trong stack --> tạo 1 node mới là parent của 2 node con --> cho node mới vào stack
+gặp 0 --> mà trong stack chỉ còn 1 node => rút node này ra làm overall root cho tree
+
+
+DONE 4. hàm main 
+
+-- phần write code file
+
+
+
+
+DONE class HuffmanTree (viết đầu tiên)
+
+DONE 1. viết hàm binary - decimal conversion (để convert mã ascii qua binary bit)
+
+DONE 2. 1 HuffmanNode chứa 5 field (thêm mã binary ascii)
+
+DONE 3. hàm Huffman constructor 1: 
+không cần add mã code eof vào tree. 
+
+DONE 4. hàm write: 
+viết vào file .huff
+32 bit đầu: số lượng character chứa trong file input
+
+tree format: 
+post-order traversal 
+1 là leaf node, followed by mã binary của ascii đang dc chứa, 0 là non-leaf node (kể cả root node)
+Sau khi done traversal, viết 1 số 0 vào .huff để signal là xong
+
+hàm convert từ integer qua 32-bit binary number dành cho integer the total number of characters 
+in the contents input file (the number of original characters that needs decoding). 
+
+DONE 5. hàm HuffmanTree 2: constructor tạo tree bằng stack<HuffmanNode>
+hàm HuffmanTree 2 nhận input parameter là .huff, skip 32 bit đầu, đọc bit từ thứ 33, tạo lại HuffmanTree bằng stack <HuffmanNode>
+gặp 1 --> lấy 8 bit sau đó --> tạo 1 huffmanNode chứa mã ascii được chuyển 8-bit binary --> cho vào stack
+gặp 0 --> rút 2 node trong stack --> tạo 1 node mới là parent của 2 node con --> cho node mới vào stack
+gặp 0 --> mà trong stack chỉ còn 1 node => rút node này ra làm overall root cho tree
+
+DONE 6. hàm decode: 
+giữ nguyên
+không cần eof để mark kết thúc 
+
+DONE 7. hàm generateCode từ tree: 
+
+class Unhuff: (viết chót)
+phần open code file & construct tree
+code file là .huff
+
+
+
